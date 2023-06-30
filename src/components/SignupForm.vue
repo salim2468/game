@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @click.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
@@ -34,7 +34,7 @@
 
 
 <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" >
     <label class="form-check-label" for="exampleCheck1">Accept Terms and condition</label>
   </div>
 
@@ -122,7 +122,7 @@ export default {
     },
     handleSubmit(){
         console.log('Form submitted');
-        this.passwordError = this.password <5 ?'':'Password must be at least 5 characters';
+        this.passwordError = this.password.length <5 || this.password.length === 0 ?'Password must be at least 5 characters':'';
 
         if(!this.passwordError){
             console.log(this.email);
